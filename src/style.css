@@ -34,6 +34,10 @@ body {
 	overflow-wrap: normal;
 	word-break: keep-all !important;
 	background: transparent;
+	/* `all: unset` resets this in Safari, making contenteditable read-only. */
+	-webkit-user-modify: read-write;
+	-webkit-user-select: text;
+	user-select: text;
 }
 
 #txt::selection {
