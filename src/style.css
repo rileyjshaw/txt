@@ -10,7 +10,7 @@ body,
 body {
 	box-sizing: border-box;
 	cursor: text;
-	padding: 12px;
+	padding: 36px;
 }
 
 #app {
@@ -34,16 +34,13 @@ body {
 	overflow-wrap: normal;
 	word-break: keep-all !important;
 	background: transparent;
-	/* `all: unset` resets this in Safari, making contenteditable read-only. */
 	-webkit-user-modify: read-write;
 	-webkit-user-select: text;
 	user-select: text;
 }
 
-#txt::selection {
+::selection {
 	color: inherit;
 	background: transparent;
-	text-decoration-line: underline;
-	text-decoration-thickness: 0.04em;
-	text-underline-offset: 0.1em;
+	text-shadow: 0 0 0.05em hotpink !important;
 }
