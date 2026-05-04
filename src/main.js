@@ -30,7 +30,7 @@ let familyIndex = 0
 let italic = false
 
 document.querySelector('#app').innerHTML = `
-  <div id="txt" contenteditable="plaintext-only" role="textbox" aria-label="Text" spellcheck="false">type…</div>
+  <div id="txt" contenteditable="true" role="textbox" aria-label="Text" spellcheck="false" tabindex="0" autofocus>type…</div>
 `
 
 const app = document.querySelector('#app')
@@ -49,6 +49,16 @@ const quoteFamily = (family) => `"${family.replaceAll('"', '\\"')}"`
 
 function refreshSize() {
   requestAnimationFrame(updateTextSize)
+}
+
+function selectAllText() {
+  const range = document.createRange()
+  const selection = window.getSelection()
+
+  range.selectNodeContents(text)
+  selection.removeAllRanges()
+  selection.addRange(range)
+  text.focus({ preventScroll: true })
 }
 
 function applyColor() {
@@ -116,4 +126,5 @@ text.addEventListener('input', () => {
 document.fonts?.ready.then(refreshSize)
 applyColor()
 applyFont()
-text.focus({ preventScroll: true })
+requestAnimationFrame(selectAllText)
+setTimeout(selectAllText, 0)
