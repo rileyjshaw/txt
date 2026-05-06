@@ -42,7 +42,7 @@ const updateTextSize = autoTextSize({
 	containerEl: app,
 	mode: 'box',
 	minFontSizePx: 1,
-	maxFontSizePx: 600,
+	maxFontSizePx: 1000,
 	fontSizePrecisionPx: 0.05,
 });
 
